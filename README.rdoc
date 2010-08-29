@@ -1,4 +1,4 @@
-= Automated Coordinate Extraction
+= Automated Coordinate Extraction (ACE)
 
 == Version
 
@@ -6,13 +6,13 @@ The current version of ACE is 0.01. Which means you shouldn't use it for anythin
 
 == License
 
-ACE is released under the MIT/X11 license[LICENSE].
+ACE is released under the MIT/X11 license[http://github.com/NIDAG/ACE/blob/master/LICENSE].
 
 == Overview
 
 ACE currently provides basic functionality for extracting stereotaxic coordinate information from published neuroimaging studies. It takes HTML files as input, parses the HTML, and saves a bunch of information to a relational database. The basic processing stream will produce the following information for each article:
 
-* Extract foci reported in tables anywhere within the article (ACE currently does \*not* look for foci reported in the body of an article)
+* Extract foci reported in tables anywhere within the article (ACE currently does *not* look for foci reported in the body of an article)
 * Extract metadata for each article (authors, source, etc.)
 * Generate a list of all words that occur at least once in the body of the article, with an associated frequency count for each word
 
@@ -24,7 +24,7 @@ Because of copyright restrictions, we're unable to provide any articles with the
 
 == Caveats, qualifiers, addendums, etc.
 
-The current release of ACE is \*NOT* intended for production; use at your own risk. The quality of the coordinate extraction engine is continually improving, but false positives and false negatives remain common at the moment. If you're planning to use the extracted coordinates in a published paper, you will most likely want to inspect and correct all coordinates manually before including them in any analyses. We assume no responsibility for any data problems that arise as a consequence of using ACE.
+The current release of ACE is *NOT* intended for production; use at your own risk. The quality of the coordinate extraction engine is continually improving, but false positives and false negatives remain common at the moment. If you're planning to use the extracted coordinates in a published paper, you will most likely want to inspect and correct all coordinates manually before including them in any analyses. We assume no responsibility for any data problems that arise as a consequence of using ACE.
 
 
 == Installation
@@ -37,18 +37,18 @@ At some (distant) point in the future, ACE will be released as a gem, which mean
 
 At minimum, ACE requires the following:
 
-1. A working Ruby interpreter, which can be freely downloaded for just about every platform here[http://ruby-lang.org]. Version 1.9+ is recommended, but ACE should also work with Ruby 1.8.
+* A working Ruby interpreter, which can be freely downloaded for just about every platform here[http://ruby-lang.org]. Version 1.9+ is recommended, but ACE should also work with Ruby 1.8.
 
-2. The following gems:
+* The following gems:
 
-* nokogiri
-* htmlentities
-* active_record
-* mysql
+	* nokogiri
+	* htmlentities
+	* active_record
+	* mysql
 
 Assuming you've successfully installed Ruby, you should be able to install all four gems from the command prompt by typing:
 
-gem install nokogiri htmlentities activerecord mysql
+	gem install nokogiri htmlentities activerecord mysql
 
 3. A relational database server. I recommend MySQL since I haven't tested ACE with anything else. You can download MySQL here[http://www.mysql.com/downloads/mysql/].
 
