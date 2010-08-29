@@ -1,0 +1,73 @@
+= Automated Coordinate Extraction
+
+== Version
+
+The current version of ACE is 0.01. Which means you shouldn't use it for anything important yet.
+
+== License
+
+ACE is released under the MIT/X11 license[LICENSE].
+
+== Overview
+
+ACE currently provides basic functionality for extracting stereotaxic coordinate information from published neuroimaging studies. It takes HTML files as input, parses the HTML, and saves a bunch of information to a relational database. The basic processing stream will produce the following information for each article:
+
+* Extract foci reported in tables anywhere within the article (ACE currently does \*not* look for foci reported in the body of an article)
+* Extract metadata for each article (authors, source, etc.)
+* Generate a list of all words that occur at least once in the body of the article, with an associated frequency count for each word
+
+Additionally, ACE provides functionality for searching through the extracted data and exporting results in a number of different formats.
+
+At present, ACE is intended for use as a Ruby library rather than a standalone package. Some familiarity with the Ruby programming will most likely be required; we don't (currently) provide a graphical interface.
+	
+Because of copyright restrictions, we're unable to provide any articles with the ACE code, so you'll have to construct your own database. In the near future, we'll offer the ability to download existing data directly, without having to parse HTML articles yourself.
+
+== Caveats, qualifiers, addendums, etc.
+
+The current release of ACE is \*NOT* intended for production; use at your own risk. The quality of the coordinate extraction engine is continually improving, but false positives and false negatives remain common at the moment. If you're planning to use the extracted coordinates in a published paper, you will most likely want to inspect and correct all coordinates manually before including them in any analyses. We assume no responsibility for any data problems that arise as a consequence of using ACE.
+
+
+== Installation
+
+At some (distant) point in the future, ACE will be released as a gem, which means that, assuming you have Ruby installed, you'll be able to type this from the command prompt:
+
+	gem install ace
+
+...and poof, you'll have a working version of ACE on your computer (well, you'll still have to install MySQL separately). Currently, installation is more onerous. Unfortunately, we can't provide technical support for the installation process, but extensive support for each of these steps is available elsewhere on the web.
+
+At minimum, ACE requires the following:
+
+1. A working Ruby interpreter, which can be freely downloaded for just about every platform here[http://ruby-lang.org]. Version 1.9+ is recommended, but ACE should also work with Ruby 1.8.
+
+2. The following gems:
+
+* nokogiri
+* htmlentities
+* active_record
+* mysql
+
+Assuming you've successfully installed Ruby, you should be able to install all four gems from the command prompt by typing:
+
+gem install nokogiri htmlentities activerecord mysql
+
+3. A relational database server. I recommend MySQL since I haven't tested ACE with anything else. You can download MySQL here[http://www.mysql.com/downloads/mysql/].
+
+4. Git. Follow instructions here[http://help.github.com/git-installation-redirect].
+
+5. The ACE code. You can check it out of the git repository like so:
+
+	git clone git://github.com/NIDAG/ACE.git
+
+6. Create a new database on your MySQL server (and a user, if necessary) and edit the config.rb file in the ACE codebase to reflect your database credentials. Once you've done that, run setup.rb to create the necessary tables in your database.
+
+7. Modify the config.rb file to reflect the desired locations of your input files.
+
+Assuming those steps went through without a hitch, you should now be able to use ACE. Since a database of studies isn't currently supplied with ACE (but will be eventually), your first order of business will probably be to download some full-text articles and process them with ACE.
+
+== Usage
+
+For now, you can just run ace.rb to process any files you put in the content directory (specified in config.rb). More detail to come soon...
+
+== Contact
+
+For questions, comments, suggestions, or insults, email[mailto:tyarkoni@gmail.com] Tal Yarkoni.
