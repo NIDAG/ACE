@@ -37,16 +37,9 @@ At some (distant) point in the future, ACE will be released as a gem, which mean
 
 At minimum, ACE requires the following:
 
-* A working Ruby interpreter, which can be freely downloaded for just about every platform here[http://ruby-lang.org]. Version 1.9+ is recommended, but ACE should also work with Ruby 1.8.
+1. A working Ruby interpreter, which can be freely downloaded for just about every platform here[http://ruby-lang.org]. Version 1.9+ is recommended, but ACE should also work with Ruby 1.8.
 
-* The following gems:
-
-	* nokogiri
-	* htmlentities
-	* active_record
-	* mysql
-
-Assuming you've successfully installed Ruby, you should be able to install all four gems from the command prompt by typing:
+2. The following gems: nokogiri, htmlentities, active_record, and mysql. Assuming you've successfully installed Ruby, you should be able to install all four gems from the command prompt by typing:
 
 	gem install nokogiri htmlentities activerecord mysql
 
